@@ -34,7 +34,7 @@ My work sits where data engineering meets the business: getting data out of awkw
 | **Serve** | Power BI KPI dashboards built with data scientists and business stakeholders; live operational screens on the warehouse floor |
 
 <details>
-<summary><b>🔍 Case study: label OCR pipeline</b> — two weeks of manual work down to 3–4 days</summary>
+<summary><b>🔍 Label OCR pipeline</b> — two weeks of manual work down to 3–4 days</summary>
 
 <br>
 
@@ -53,12 +53,12 @@ flowchart LR
 - **Why Azure ML jobs:** batches run the same way every time, without someone babysitting a notebook.
 - **Result:** extraction time from ~2 weeks to 3–4 days per batch (~70% less).
 
-📖 **[Read the full case study →](https://github.com/aleks-al-aleksandrov/label-ocr-pipeline)** — design decisions, validation logic and lessons learned
+📖 **[Full architecture, validation logic and lessons learned →](https://github.com/aleks-al-aleksandrov/label-ocr-pipeline)**
 
 </details>
 
 <details>
-<summary><b>🔁 Case study: reporting migration to SAP DataSphere</b> — 8 hours to 90 minutes</summary>
+<summary><b>🔁 Reporting migration to SAP DataSphere</b> — 8 hours to 90 minutes</summary>
 
 <br>
 
@@ -92,8 +92,8 @@ Warehouse team leaders used to print the day's plans and KPIs every morning. Now
 
 | Project | What it is | Stack |
 |---|---|---|
-| [**label-ocr-pipeline**](https://github.com/aleks-al-aleksandrov/label-ocr-pipeline) *(case study)* | Computer vision + OCR pipeline that turns shelf-label photos into validated product data — 2 weeks to 3–4 days per batch. Code belongs to my former employer, so this is a design write-up. | Python · OpenCV · YOLO · EasyOCR · Tesseract · Azure ML |
-| [**co2-emissions-tracker**](https://github.com/aleks-al-aleksandrov/co2-emissions-tracker) | Full-stack app for recording CO₂ emissions with statistics, CSV reports and role-based accounts. I led the 3-person team. | .NET 9 · Blazor · ASP.NET Core · EF Core · JWT |
+| [**label-ocr-pipeline**](https://github.com/aleks-al-aleksandrov/label-ocr-pipeline) | Computer vision + OCR pipeline that turns shelf-label photos into validated product data — 2 weeks to 3–4 days per batch. Architecture, validation logic and tested reference implementations. | Python · OpenCV · YOLO · EasyOCR · Tesseract · Azure ML |
+| [**co2-emissions-tracker**](https://github.com/aleks-al-aleksandrov/co2-emissions-tracker-) | Full-stack app for recording CO₂ emissions with statistics, CSV reports and role-based accounts. I led the 3-person team. | .NET 9 · Blazor · ASP.NET Core · EF Core · JWT |
 | 🚧 **retail-price-pipeline** *(building now)* | Batch pipeline on public Bulgarian price data: Python ingestion → DuckDB → tested dbt models (staging → marts) → Power BI, with CI on GitHub Actions. | Python · dbt · DuckDB · Power BI · GitHub Actions |
 
 ## 💼 Experience
