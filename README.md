@@ -29,7 +29,7 @@ My work sits where data engineering meets the business: getting data out of awkw
 |---|---|
 | **Ingest** | Extracted structured data from 3,000+ product-label images per batch with a YOLO + Tesseract OCR pipeline in Python |
 | **Transform** | Rebuilt legacy SQL reporting logic on SAP DataSphere, with SQL and R automation replacing manual steps |
-| **Validate** | Reconciled migrated reports against the legacy output before go-live; zero monthly errors afterwards |
+| **Validate** | Reconciled migrated reports against the legacy output before go-live |
 | **Orchestrate** | Scheduled, repeatable pipeline jobs in Azure ML Studio; event-driven file processing (Chokidar → WebSocket) |
 | **Serve** | Power BI KPI dashboards built with data scientists and business stakeholders; live operational screens on the warehouse floor |
 
