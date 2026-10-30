@@ -109,11 +109,11 @@ Warehouse team leaders used to print the day's plans and KPIs every morning. Now
 
 > *"Aleks showed initiative in identifying opportunities for process optimization and automation. He proactively sought ways to improve our workflows and implemented solutions that increased our department's efficiency."*
 >
-> — **Kasper Hansen Høgh**, Senior Manager, Commercial Analytics, Salling Group
+> —  Senior Manager, Commercial Analytics, Salling Group
 
 > *"After several months, we noticed that he is interested in daily processes and how to make them better… he is the only responsible person at the production when management is not at work."*
 >
-> — **Arturs Kanskis**, Team Leader, Salling Group
+> —  Team Leader, Salling Group
 
 ## 🛠️ Toolbox
 
