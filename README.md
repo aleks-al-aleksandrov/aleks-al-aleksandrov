@@ -62,11 +62,11 @@ flowchart LR
 
 <br>
 
-Trade planning & pricing relied on 30 legacy SQL scripts run by hand every month. I worked on moving them to SAP DataSphere:
+Trade planning & pricing relied on legacy SQL scripts run by hand every month. I worked on moving them to SAP DataSphere:
 
 ```mermaid
 flowchart LR
-    A[30 legacy<br/>SQL scripts] --> B[Rebuilt on<br/>SAP DataSphere]
+    A[Legacy<br/>SQL scripts] --> B[Rebuilt on<br/>SAP DataSphere]
     B --> C[Automated with<br/>SQL + R]
     C --> D{Reconcile vs<br/>legacy output}
     D -- match --> E[Monthly reports<br/>90 minutes]
@@ -74,7 +74,7 @@ flowchart LR
 ```
 
 - **What mattered most:** proving the new numbers matched the old ones before anyone relied on them.
-- **Result:** the monthly run went from 8 hours to 90 minutes, with zero monthly errors after go-live.
+- **Result:** the monthly run went from 8 hours to 90 minutes, with outputs reconciled against the legacy reports before go-live.
 
 </details>
 
@@ -86,7 +86,7 @@ Warehouse team leaders used to print the day's plans and KPIs every morning. Now
 
 <a href="https://github.com/aleks-al-aleksandrov/smart-gallery-system"><img src="https://raw.githubusercontent.com/aleks-al-aleksandrov/smart-gallery-system/main/docs/screenshots/realtime-update.gif" alt="A new shift plan is saved and the screen updates on its own" width="720"></a>
 
-`Node.js` `Express` `WebSocket` `Chokidar` `Sharp` `Raspberry Pi` — bachelor project, piloted with warehouse managers: daily meeting prep from 15–25 to under 5 minutes, usability rated 9.5/10.
+`Node.js` `Express` `WebSocket` `Chokidar` `Sharp` `Raspberry Pi` — bachelor project, piloted with warehouse managers: daily meeting prep from 15–25 to under 5 minutes.
 
 ### More
 
@@ -94,7 +94,7 @@ Warehouse team leaders used to print the day's plans and KPIs every morning. Now
 |---|---|---|
 | [**label-ocr-pipeline**](https://github.com/aleks-al-aleksandrov/label-ocr-pipeline) | Computer vision + OCR pipeline that turns shelf-label photos into validated product data — 2 weeks to 3–4 days per batch. Architecture, validation logic and tested reference implementations. | Python · OpenCV · YOLO · EasyOCR · Tesseract · Azure ML |
 | [**co2-emissions-tracker**](https://github.com/aleks-al-aleksandrov/co2-emissions-tracker-) | Full-stack app for recording CO₂ emissions with statistics, CSV reports and role-based accounts. I led the 3-person team. | .NET 9 · Blazor · ASP.NET Core · EF Core · JWT |
-| 🚧 **retail-price-pipeline** *(building now)* | Batch pipeline on public Bulgarian price data: Python ingestion → DuckDB → tested dbt models (staging → marts) → Power BI, with CI on GitHub Actions. | Python · dbt · DuckDB · Power BI · GitHub Actions |
+| [**subscription-analytics-dbt**](https://github.com/aleks-al-aleksandrov/subscription-analytics-dbt) | End-to-end subscription analytics pipeline: synthetic data generator → DuckDB → dbt staging, marts, incremental payments (delete+insert + 7-day lookback), SCD Type 2 snapshot, MRR metrics, 84 data tests, and local Airflow orchestration via Astro CLI + GitHub Actions CI. | dbt · DuckDB · SQL · Python · Airflow · GitHub Actions |
 
 ## 💼 Experience
 
