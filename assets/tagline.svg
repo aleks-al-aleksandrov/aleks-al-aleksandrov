@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 50" width="760" height="50" role="img" aria-label="I build pipelines that replace manual work. Ingest, transform, test, serve. SQL, Python, dbt, Airflow, Power BI. From the warehouse floor to data engineering.">
+  <style>
+    /* Self-hosted rotating tagline: four lines cross-fade on a 12 s loop.
+       Only opacity and transform change, so it stays smooth and loads with the page. */
+    text {
+      font-family: 'Fira Code', 'JetBrains Mono', Consolas, Menlo, 'Courier New', monospace;
+      font-size: 22px; font-weight: 600; fill: #38bdf8;
+      opacity: 0; animation: cycle 12s cubic-bezier(.45,0,.25,1) infinite both;
+    }
+    .l2 { animation-delay: 3s; } .l3 { animation-delay: 6s; } .l4 { animation-delay: 9s; }
+    @keyframes cycle {
+      0%   { opacity: 0; transform: translateY(8px); }
+      5%   { opacity: 1; transform: translateY(0); }
+      21%  { opacity: 1; transform: translateY(0); }
+      25%  { opacity: 0; transform: translateY(-8px); }
+      100% { opacity: 0; transform: translateY(-8px); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      text { animation: none; }
+      .l1 { opacity: 1; }
+    }
+  </style>
+  <text class="l1" x="380" y="32" text-anchor="middle">I build pipelines that replace manual work</text>
+  <text class="l2" x="380" y="32" text-anchor="middle">Ingest → transform → test → serve</text>
+  <text class="l3" x="380" y="32" text-anchor="middle">SQL · Python · dbt · Airflow · Power BI</text>
+  <text class="l4" x="380" y="32" text-anchor="middle">From the warehouse floor to data engineering</text>
+</svg>
