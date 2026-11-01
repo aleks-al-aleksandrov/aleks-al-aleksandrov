@@ -3,10 +3,10 @@
 <div align="center">
 
 <a href="https://github.com/aleks-al-aleksandrov">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&duration=3000&pause=1000&color=38BDF8&center=true&vCenter=true&width=760&lines=Hi+there%2C+I'm+Aleks+%F0%9F%91%8B;I+build+pipelines+that+replace+manual+work;Ingest+%E2%86%92+transform+%E2%86%92+validate+%E2%86%92+serve;SQL+%C2%B7+Python+%C2%B7+SAP+DataSphere+%C2%B7+Power+BI;From+the+warehouse+floor+to+data+engineering" alt="Hi there, I'm Aleks. I build pipelines that replace manual work.">
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&duration=3000&pause=1000&color=38BDF8&center=true&vCenter=true&width=760&lines=Hi+there%2C+I'm+Aleks+%F0%9F%91%8B;I+build+pipelines+that+replace+manual+work;Ingest+%E2%86%92+transform+%E2%86%92+test+%E2%86%92+serve;SQL+%C2%B7+Python+%C2%B7+dbt+%C2%B7+Airflow+%C2%B7+Power+BI;From+the+warehouse+floor+to+data+engineering" alt="Hi there, I'm Aleks. I build pipelines that replace manual work.">
 </a>
 
-<a href="https://www.linkedin.com/in/aleks-aleksandrov-42a472238/"><img src="https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"></a>
+<a href="https://www.linkedin.com/in/aleks-aleksandrov-data"><img src="https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"></a>
 <a href="https://aleks-aleksandrov-s4va.vercel.app/"><img src="https://img.shields.io/badge/Portfolio-Visit-111827?style=for-the-badge&logo=vercel&logoColor=white" alt="Portfolio"></a>
 <img src="https://img.shields.io/badge/Location-Bulgaria-00966E?style=for-the-badge" alt="Location: Bulgaria">
 
@@ -28,9 +28,9 @@ My work sits where data engineering meets the business: getting data out of awkw
 | Stage | What I've done |
 |---|---|
 | **Ingest** | Extracted structured data from 3,000+ product-label images per batch with a YOLO + Tesseract OCR pipeline in Python |
-| **Transform** | Rebuilt legacy SQL reporting logic on SAP DataSphere, with SQL and R automation replacing manual steps |
-| **Validate** | Reconciled migrated reports against the legacy output before go-live |
-| **Orchestrate** | Scheduled, repeatable pipeline jobs in Azure ML Studio; event-driven file processing (Chokidar → WebSocket) |
+| **Transform** | Rebuilt legacy SQL reporting logic on SAP DataSphere, with SQL and R automation replacing manual steps · layered dbt models (staging → marts, incremental, SCD Type 2) |
+| **Validate** | Reconciled migrated reports against the legacy output before go-live · 84 dbt data tests, including custom financial reconciliation checks |
+| **Orchestrate** | Scheduled pipeline jobs in Azure ML Studio · Airflow DAGs running dbt (Astro CLI) · GitHub Actions CI on every push |
 | **Serve** | Power BI KPI dashboards built with data scientists and business stakeholders; live operational screens on the warehouse floor |
 
 <details>
@@ -80,6 +80,27 @@ flowchart LR
 
 ## 🚀 Projects
 
+### [Subscription Analytics](https://github.com/aleks-al-aleksandrov/subscription-analytics-dbt) — end-to-end analytics engineering with dbt
+
+A subscription business (customers, plans, subscriptions, payments) modelled from messy raw data to tested marts that answer *"what is our MRR?"*, *"who upgraded, downgraded or churned?"* and *"do billed payments reconcile?"*.
+
+```mermaid
+flowchart LR
+    A[Synthetic source data<br/>duplicates, late arrivals,<br/>messy formats] --> B[(DuckDB<br/>raw)]
+    B --> C[Staging views<br/>clean · cast · dedupe]
+    C --> D[Snapshot<br/>SCD Type 2]
+    C --> E[Marts<br/>dims · facts · MRR]
+    E --> F[84 data tests]
+    G[Airflow DAG<br/>Astro CLI] -.runs.-> C
+    H[GitHub Actions CI] -.builds & tests.-> E
+```
+
+- **Incremental `fct_payments`** with `delete+insert` and a 7-day lookback, so late-arriving payments are picked up without full refreshes.
+- **SCD Type 2 snapshot** of subscriptions across two point-in-time loads, to track plan changes and cancellations over time.
+- **Flags instead of filters** in staging (`is_late_arrival`, `is_successful`), so failed payments stay available for analysis.
+
+`dbt` `DuckDB` `SQL` `Python` `Airflow` `GitHub Actions` — every model has a documented grain, and CI runs `dbt build` on each push.
+
 ### [Smart Gallery System](https://github.com/aleks-al-aleksandrov/smart-gallery-system) — event-driven presentation automation
 
 Warehouse team leaders used to print the day's plans and KPIs every morning. Now they save a file to a folder and every screen on the floor updates about two seconds later — offline, on a Raspberry Pi behind each screen.
@@ -94,7 +115,12 @@ Warehouse team leaders used to print the day's plans and KPIs every morning. Now
 |---|---|---|
 | [**label-ocr-pipeline**](https://github.com/aleks-al-aleksandrov/label-ocr-pipeline) | Computer vision + OCR pipeline that turns shelf-label photos into validated product data — 2 weeks to 3–4 days per batch. Architecture, validation logic and tested reference implementations. | Python · OpenCV · YOLO · EasyOCR · Tesseract · Azure ML |
 | [**co2-emissions-tracker**](https://github.com/aleks-al-aleksandrov/co2-emissions-tracker-) | Full-stack app for recording CO₂ emissions with statistics, CSV reports and role-based accounts. I led the 3-person team. | .NET 9 · Blazor · ASP.NET Core · EF Core · JWT |
-| [**subscription-analytics-dbt**](https://github.com/aleks-al-aleksandrov/subscription-analytics-dbt) | End-to-end subscription analytics pipeline: synthetic data generator → DuckDB → dbt staging, marts, incremental payments (delete+insert + 7-day lookback), SCD Type 2 snapshot, MRR metrics, 84 data tests, and local Airflow orchestration via Astro CLI + GitHub Actions CI. | dbt · DuckDB · SQL · Python · Airflow · GitHub Actions |
+
+
+### 🔨 Currently building
+
+- **Predictive maintenance** — remaining-useful-life prediction for turbofan engines on the NASA C-MAPSS dataset, with a Streamlit UI.
+- **Bulgarian electricity market analytics** — day-ahead price data from ENTSO-E, a forecasting layer and a Streamlit dashboard.
 
 ## 💼 Experience
 
@@ -127,15 +153,19 @@ Warehouse team leaders used to print the day's plans and KPIs every morning. Now
   <img src="https://img.shields.io/badge/SAP%20DataSphere-0FAAFF?style=flat-square&logo=sap&logoColor=white" alt="SAP DataSphere">
   <img src="https://img.shields.io/badge/Power%20BI-F2C811?style=flat-square&logo=powerbi&logoColor=black" alt="Power BI">
   <img src="https://img.shields.io/badge/DAX-F2C811?style=flat-square&logoColor=black" alt="DAX">
+  <img src="https://img.shields.io/badge/dbt-FF694B?style=flat-square&logo=dbt&logoColor=white" alt="dbt">
+  <img src="https://img.shields.io/badge/Airflow-017CEE?style=flat-square&logo=apacheairflow&logoColor=white" alt="Airflow">
+  <img src="https://img.shields.io/badge/DuckDB-FFF000?style=flat-square&logo=duckdb&logoColor=black" alt="DuckDB">
+  <img src="https://img.shields.io/badge/GitHub%20Actions-2088FF?style=flat-square&logo=githubactions&logoColor=white" alt="GitHub Actions">
+  <br>
   <img src="https://img.shields.io/badge/Pandas-150458?style=flat-square&logo=pandas&logoColor=white" alt="Pandas">
   <img src="https://img.shields.io/badge/Azure%20ML-0078D4?style=flat-square&logo=microsoftazure&logoColor=white" alt="Azure ML">
   <img src="https://img.shields.io/badge/YOLO%20%2B%20OCR-111F68?style=flat-square" alt="YOLO and OCR">
   <img src="https://img.shields.io/badge/Excel%20%2F%20VBA-217346?style=flat-square&logo=microsoftexcel&logoColor=white" alt="Excel and VBA">
   <br>
-  <sub><b>Learning now:</b></sub>
-  <img src="https://img.shields.io/badge/dbt-FF694B?style=flat-square&logo=dbt&logoColor=white" alt="dbt">
-  <img src="https://img.shields.io/badge/DuckDB-FFF000?style=flat-square&logo=duckdb&logoColor=black" alt="DuckDB">
-  <img src="https://img.shields.io/badge/GitHub%20Actions-2088FF?style=flat-square&logo=githubactions&logoColor=white" alt="GitHub Actions">
+  <sub><b>Building with now:</b></sub>
+  <img src="https://img.shields.io/badge/Streamlit-FF4B4B?style=flat-square&logo=streamlit&logoColor=white" alt="Streamlit">
+  <img src="https://img.shields.io/badge/Time%20series%20forecasting-555555?style=flat-square" alt="Time series forecasting">
 </p>
 
 ## 🧭 How I work
@@ -147,6 +177,6 @@ Warehouse team leaders used to print the day's plans and KPIs every morning. Now
 
 ## 📫 Let's talk
 
-Based in **Bulgaria** and open to **Data Engineer**, **Analytics Engineer** and **BI** roles — on-site, hybrid or remote. The fastest way to reach me is [LinkedIn](https://www.linkedin.com/in/aleks-aleksandrov-42a472238/).
+Based in **Bulgaria** and open to **Data Engineer**, **Analytics Engineer** and **BI** roles — on-site, hybrid or remote. The fastest way to reach me is [LinkedIn](https://www.linkedin.com/in/aleks-aleksandrov-data).
 
 <sub>🇧🇬 Bulgarian (native) · 🇬🇧 English (fluent) · 🇩🇪 German (basic) · Off the keyboard: hiking, surfing and fishing in the mountains I grew up in.</sub>
