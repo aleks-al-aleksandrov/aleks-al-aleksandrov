@@ -117,18 +117,13 @@ Warehouse team leaders used to print the day's plans and KPIs every morning. Now
 | [**co2-emissions-tracker**](https://github.com/aleks-al-aleksandrov/co2-emissions-tracker-) | Full-stack app for recording CO₂ emissions with statistics, CSV reports and role-based accounts. I led the 3-person team. | .NET 9 · Blazor · ASP.NET Core · EF Core · JWT |
 
 
-### 🔨 Currently building
-
-- **Predictive maintenance** — remaining-useful-life prediction for turbofan engines on the NASA C-MAPSS dataset, with a Streamlit UI.
-- **Bulgarian electricity market analytics** — day-ahead price data from ENTSO-E, a forecasting layer and a Streamlit dashboard.
-
 ## 💼 Experience
 
 | When | Role | Highlights |
 |---|---|---|
 | 2025 – 2026 | **Student Assistant, Commercial Analytics** · Salling Group | YOLO + OCR pipeline, Azure ML jobs, Power BI KPI dashboards |
 | 2025 | **Intern, Trade Planning & Pricing** · Salling Group | Reporting migration to SAP DataSphere, SQL + R automation |
-| 2022 – 2025 | **Production Assistant & Internal Systems** · Salling Group | Shift lead for 10+ people; built 3 internal web apps that replaced paper workflows |
+| 2021 – 2025 | **Production Assistant & Internal Systems** · Salling Group | Shift lead for 10+ people; built 3 internal web apps that replaced paper workflows |
 | 2021 – 2026 | **BSc Global Business Engineering (Software)** · VIA University College | Bachelor project: Smart Gallery System |
 
 ## 💬 What my managers say
@@ -162,10 +157,7 @@ Warehouse team leaders used to print the day's plans and KPIs every morning. Now
   <img src="https://img.shields.io/badge/Azure%20ML-0078D4?style=flat-square&logo=microsoftazure&logoColor=white" alt="Azure ML">
   <img src="https://img.shields.io/badge/YOLO%20%2B%20OCR-111F68?style=flat-square" alt="YOLO and OCR">
   <img src="https://img.shields.io/badge/Excel%20%2F%20VBA-217346?style=flat-square&logo=microsoftexcel&logoColor=white" alt="Excel and VBA">
-  <br>
-  <sub><b>Building with now:</b></sub>
-  <img src="https://img.shields.io/badge/Streamlit-FF4B4B?style=flat-square&logo=streamlit&logoColor=white" alt="Streamlit">
-  <img src="https://img.shields.io/badge/Time%20series%20forecasting-555555?style=flat-square" alt="Time series forecasting">
+
 </p>
 
 ## 🧭 How I work
